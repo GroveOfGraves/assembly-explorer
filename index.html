@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembly Explorer: x86-64 vs AArch64</title>
+<!-- 1. External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Symbols" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;family=Google+Code:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.0/math.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.146.0/examples/js/controls/OrbitControls.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" crossorigin="anonymous"></script>
+
+<!-- 2. CSS Design System -->
+    <link rel="stylesheet" href="style.css">
+    <script src="widget-shell.js"></script>
+    <script src="data.js"></script>
+</head>
+<body style="height: 100%; display: flex; flex-direction: column; overflow: hidden; background-color: var(--surface-container); margin: 0px;">
+    <!-- Absolute positioned reference links overlay -->
+    <div style="position: absolute; right: 24px; top: 80px; z-index: 100; text-align: right; font-family: 'Google Sans', sans-serif; pointer-events: auto;">
+        <div style="font-size: 14px; color: var(--on-surface-default, #fff); margin-bottom: 24px; font-weight: 500; letter-spacing: 0.5px;">By <span style="color: var(--primary, #8ab4f8);">Gavin Montgomery</span></div>
+
+        <div style="font-size: 10px; color: var(--on-surface-variant, #ccc); font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;">RESOURCES / CHEAT SHEETS</div>
+        <a href="https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf" target="_blank" 
+           style="display: block; color: var(--primary, #8ab4f8); text-decoration: none; font-size: 12px; margin-bottom: 6px; padding: 6px 10px; border: 1px solid var(--outline-variant, #444); border-radius: 6px; background: var(--surface, #222); transition: filter 0.2s;"
+           onmouseover="this.style.filter='brightness(1.2)'" onmouseout="this.style.filter='brightness(1)'">
+            x86-64 Reference ↗
+        </a>
+        <a href="https://www.cs.swarthmore.edu/~kwebb/cs31/resources/ARM64_Cheat_Sheet.pdf" target="_blank" 
+           style="display: block; color: var(--chart-5, #f28b82); text-decoration: none; font-size: 12px; padding: 6px 10px; border: 1px solid var(--outline-variant, #444); border-radius: 6px; background: var(--surface, #222); transition: filter 0.2s;"
+           onmouseover="this.style.filter='brightness(1.2)'" onmouseout="this.style.filter='brightness(1)'">
+            AArch64 Reference ↗
+        </a>
+    </div>
+
+<script src="app.js"></script>
