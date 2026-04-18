@@ -117,12 +117,22 @@ WH.initCanvas('viz', (ctx) => {
             { label: "Arch", value: item.type === 'unmatched' ? 'N/A' : 'CISC vs RISC' }
         ]);
 
+        // Determine bottom coordinate for the split line
+        let splitLineBottom = height - 100;
+        if (item.type !== 'unmatched' && item.x86 && item.arm) {
+            const linesX86 = item.x86.split('\n').length;
+            const linesArm = item.arm.split('\n').length;
+            const boxY = 120;
+            const boxH = 50 + (Math.max(linesX86, linesArm) * 20) + 15;
+            splitLineBottom = boxY + boxH + 15; // Stop gracefully above the description
+        }
+
         // Background / Split Line
         ctx.strokeStyle = WH.getColor('--outline-variant');
         ctx.setLineDash([5, 5]);
         ctx.beginPath();
         ctx.moveTo(cx, 100);
-        ctx.lineTo(cx, height - 100);
+        ctx.lineTo(cx, splitLineBottom);
         ctx.stroke();
         ctx.setLineDash([]);
 
